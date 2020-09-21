@@ -20,9 +20,9 @@ export default function Nav() {
   }
 
   return (
-    <header>
+    <header className="flex-row px-1">
       <h2>
-        <a href="/">
+        <a href="/" data-testid="link">
           <span role="img" aria-label="camera">
             📸
           </span>{' '}
@@ -32,10 +32,12 @@ export default function Nav() {
       <nav>
         <ul className="flex-row">
           <li className="mx-2">
-            <a href="#about">About me</a>
+            <a href="#about" data-testid="about">
+              About me
+            </a>
           </li>
           <li>
-            <span>Contant</span>
+            <span>Contact</span>
           </li>
           {categories.map((category) => (
             <li className="mx-1" key={category.name}>
