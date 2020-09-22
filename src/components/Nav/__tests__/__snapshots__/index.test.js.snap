@@ -10,6 +10,7 @@ exports[`Nav components should match snapshot 1`] = `
         data-testid="link"
         href="/"
       >
+         
         <span
           aria-label="camera"
           role="img"
@@ -33,7 +34,9 @@ exports[`Nav components should match snapshot 1`] = `
             About me
           </a>
         </li>
-        <li>
+        <li
+          class="mx-2 undefined"
+        >
           <span>
             Contact
           </span>
