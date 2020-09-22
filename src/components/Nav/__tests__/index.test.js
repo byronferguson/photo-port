@@ -1,6 +1,5 @@
 import React from 'react';
 import { render, cleanup } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
 import Nav from '..';
 
 const categories = [
@@ -8,41 +7,37 @@ const categories = [
 ];
 const mockCurrentCategory = jest.fn();
 const mockSetCurrentCategory = jest.fn();
+const mockContactSelected = jest.fn();
+const mockSetContactSelected = jest.fn();
 
 afterEach(cleanup);
 
+let component;
+
+beforeEach(() => {
+  component = render(
+    <Nav
+      categories={categories}
+      setCurrentCategory={mockSetCurrentCategory}
+      currentCategory={mockCurrentCategory}
+      setContactSelected={mockSetContactSelected}
+      contactSelected={mockContactSelected}
+    />
+  );
+});
+
 describe('Nav components', () => {
-  it('should render', () => {
-    render(
-      <Nav
-        categories={categories}
-        setCurrentCategory={mockSetCurrentCategory}
-        currentCategory={mockCurrentCategory}
-      />
-    );
-  });
+  it('should render', () => {});
 
   it('should match snapshot', () => {
-    const { asFragment } = render(
-      <Nav
-        categories={categories}
-        setCurrentCategory={mockSetCurrentCategory}
-        currentCategory={mockCurrentCategory}
-      />
-    );
+    const { asFragment } = component;
     expect(asFragment()).toMatchSnapshot();
   });
 
   describe('emoji is visible', () => {
     it('inserts emoji into the h2', () => {
       // Arrange
-      const { getByLabelText } = render(
-        <Nav
-          categories={categories}
-          setCurrentCategory={mockSetCurrentCategory}
-          currentCategory={mockCurrentCategory}
-        />
-      );
+      const { getByLabelText } = component;
 
       // Act
 
@@ -54,13 +49,7 @@ describe('Nav components', () => {
   describe('links are visible', () => {
     it('inserts text into the links', () => {
       // Arrange
-      const { getByTestId } = render(
-        <Nav
-          categories={categories}
-          setCurrentCategory={mockSetCurrentCategory}
-          currentCategory={mockCurrentCategory}
-        />
-      );
+      const { getByTestId } = component;
 
       // Act
 
