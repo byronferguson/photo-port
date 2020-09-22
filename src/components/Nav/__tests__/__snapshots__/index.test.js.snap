@@ -38,6 +38,13 @@ exports[`Nav components should match snapshot 1`] = `
             Contact
           </span>
         </li>
+        <li
+          class="mx-1 false"
+        >
+          <span>
+            Portraits
+          </span>
+        </li>
       </ul>
     </nav>
   </header>
